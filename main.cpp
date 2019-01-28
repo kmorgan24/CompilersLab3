@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 {
     const char *outfile_name;
     int result = 0;
-
+    std::cout << "Kyronn Morgan" << std::endl;
     if (argc > 1)
     {
         yyin = fopen(argv[1], "r");
