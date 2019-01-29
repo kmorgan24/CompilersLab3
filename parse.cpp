@@ -120,7 +120,7 @@ bool FindEXPR_P()
     {
       if(PeekToken() != '(')
       {
-          Error("'('");
+          Error("'('", "to use form (num)+(num) or [num]*[num]");
           return true;
       }
       AdvanceToken();
@@ -128,7 +128,7 @@ bool FindEXPR_P()
           return false;
       if(PeekToken() != ')')
       {
-          Error("')'");
+          Error("')'", "to use form (num)+(num) or [num]*[num]");
           return false;
       }
       AdvanceToken(); 
@@ -147,7 +147,10 @@ bool FindPLUSOP()
         return true;
     }
     else
+	{
+        Error("+ or -");
         return false;
+    }
 }
 
 bool FindTERM()
@@ -161,7 +164,7 @@ bool FindTERM()
             return false;
         if(PeekToken() != ']')
         {
-            Error("']'");
+            Error("']'", "to use form (num)+(num) or [num]*[num]");
             return false;
         }
         AdvanceToken();
@@ -187,7 +190,7 @@ bool FindTERM_P()
     {
         if(PeekToken() != '[')
         {
-             Error("'['");
+             Error("'['", "to use form (num)+(num) or [num]*[num]");
              return false;
         }
         AdvanceToken();
@@ -195,7 +198,7 @@ bool FindTERM_P()
              return false;
         if(PeekToken() != ']')
         {
-             Error("']'");     
+             Error("']'", "to use form (num)+(num) or [num]*[num]");     
              return false;
         }
         AdvanceToken();
@@ -215,7 +218,10 @@ bool FindTIMESOP()
         return true;
     }
     else
+    {
+        Error("* or /");
         return false;
+    }
 }
 
 

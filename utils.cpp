@@ -13,6 +13,16 @@ void Error(std::string expecting)
     std::cout << " in line " << yylineno << std::endl;
 }
 //*******************************************
+// Print an error message in a standard form 
+// with suggestion to fix error
+void Error(std::string expecting, std::string DidMean)
+{
+    std::cout << "Found '" << yytext << "' when expecting a " << expecting;
+    std::cout << " in line " << yylineno << std::endl;
+    std::cout << "Did you mean  " << DidMean << "  ?" << std::endl;
+}
+
+//*******************************************
 // Peek at the next token without advancing through the file
 int PeekToken()
 {
